@@ -1,0 +1,53 @@
+{
+	"name": "@evyu/ckeditor",
+	"author": "evy",
+	"description": "A custom CKEditor 5 build made by the CKEditor 5 online builder.",
+	"version": "0.0.6",
+	"license": "SEE LICENSE IN LICENSE.md",
+	"main": "./build/ckeditor.js",
+	"types": "./build/ckeditor.d.ts",
+	"dependencies": {
+		"@ckeditor/ckeditor5-alignment": "40.0.0",
+		"@ckeditor/ckeditor5-basic-styles": "40.0.0",
+		"@ckeditor/ckeditor5-editor-classic": "40.0.0",
+		"@ckeditor/ckeditor5-essentials": "40.0.0",
+		"@ckeditor/ckeditor5-html-embed": "^40.0.0",
+		"@ckeditor/ckeditor5-html-support": "^40.0.0",
+		"@ckeditor/ckeditor5-image": "40.0.0",
+		"@ckeditor/ckeditor5-link": "40.0.0",
+		"@ckeditor/ckeditor5-paragraph": "40.0.0",
+		"@ckeditor/ckeditor5-remove-format": "40.0.0",
+		"@ckeditor/ckeditor5-special-characters": "40.0.0",
+		"@ckeditor/ckeditor5-upload": "^40.0.0",
+		"@wiris/mathtype-ckeditor5": "8.5.0",
+		"@wiris/mathtype-html-integration-devkit": "1.13.0",
+		"dompurify": "^3.0.6",
+		"patch-package": "^8.0.0",
+		"postinstall-postinstall": "^2.1.0"
+	},
+	"devDependencies": {
+		"@ckeditor/ckeditor5-dev-translations": "^32.1.2",
+		"@ckeditor/ckeditor5-dev-utils": "^32.1.2",
+		"@ckeditor/ckeditor5-theme-lark": "^40.0.0",
+		"css-loader": "^5.2.7",
+		"postcss": "^8.4.31",
+		"postcss-loader": "^4.3.0",
+		"raw-loader": "^4.0.2",
+		"style-loader": "^2.0.0",
+		"terser-webpack-plugin": "^5.3.9",
+		"ts-loader": "^9.4.4",
+		"typescript": "^4.9.5",
+		"webpack": "^5.88.2",
+		"webpack-cli": "^4.10.0"
+	},
+	"scripts": {
+		"postinstall": "patch-package",
+		"build": "rm -rf build && webpack --mode production",
+		"postbuild": "tsc --declaration --declarationDir build --stripInternal --emitDeclarationOnly",
+		"start": "npx http-server -o ./sample -s -c-1"
+	},
+	"publishConfig": {
+		"access": "public",
+		"registry": "https://registry.npmjs.org/"
+	}
+}

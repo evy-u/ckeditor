@@ -1,0 +1,13 @@
+diff --git a/node_modules/@wiris/mathtype-html-integration-devkit/src/util.js b/node_modules/@wiris/mathtype-html-integration-devkit/src/util.js
+index 9708282..a365105 100644
+--- a/node_modules/@wiris/mathtype-html-integration-devkit/src/util.js
++++ b/node_modules/@wiris/mathtype-html-integration-devkit/src/util.js
+@@ -404,7 +404,7 @@ export default class Util {
+     // Get all the annotation content including the tags.
+     let annotation = html.match(annotationRegex);
+     // Sanitize html code without removing the <semantics> and <annotation> tags.
+-    html = DOMPurify.sanitize(html, { ADD_TAGS: ['semantics', 'annotation'], ALLOWED_ATTR: ['mathvariant', 'class', 'linebreak']});
++    html = DOMPurify.sanitize(html, { ADD_TAGS: ['semantics', 'annotation', 'math', 'mfenced', 'mtable'], ALLOWED_ATTR: ['mathvariant', 'class', 'linebreak', 'open', 'close', 'xmlns', 'columnlines', 'rowlines']});
+     // Readd old annotation content.
+     return html.replace(annotationRegex, annotation);
+   }
